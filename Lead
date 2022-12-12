@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page </title>
+</head>
+<body>
+
+    <div id="main div">
+
+        <h1>
+            Enter Lead  details 
+            </h1>
+        <form autocomplete="off",name="leadform" onsubmit="createObject();return false">
+            <div>
+                <label >Name</label>
+                <input type="text" id="Name-field" required>
+            </div>
+            <div>
+                <label >Email</label>
+                <input type="text" id="Email-field" >
+            </div>
+            
+            <div>
+                <label >FullName</label>
+                <input type="text" id="FullName-field" >
+            </div>
+            <div>
+                <label >status</label>
+                <input type="hidden" id="status-field">
+            </div>
+            
+            
+            <div>
+                <input type="submit" id="submit-form" value="SUBMIT">
+            </div>
+        </form>
+    </div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/track-cookies.js"></script>
+<script src="https://webtracking-v01.bpmonline.com/JS/create-object.js"></script>
+<script>
+
+/**
+* Replace the "css-selector" placeholders in the code below with the element selectors on your landing page.
+* You can use #id or any other CSS selector that will define the input field explicitly.
+* Example: "Email": "#MyEmailField".
+* If you don't have a field from the list below placed on your landing, leave the placeholder or remove the line.
+*/
+var config = {
+    fields: {
+        "LeadName": "#Name-field", // Name of a visitor, submitting the page
+        "Email": "#Email-field", // Visitor's email
+        "Status":"#submit-field"//status
+      
+    },
+    contactFields:{
+        "FullName":"#FullName-field"
+    },
+   
+   /* customFields: {},
+    landingId: "dd45263d-99aa-42a4-8fd8-a4f33b5b9ae8",
+    serviceUrl: "https://127202-crm-bundle.creatio.com/0/ServiceModel/GeneratedObjectWebFormService.svc/SaveWebFormObjectData",
+    redirectUrl: "" */
+};
+/**
+* The function below creates a object from the submitted data.
+* Bind this function call to the "onSubmit" event of the form or any other elements events.
+* Example: <form class="mainForm" name="landingForm" onSubmit="createObject(); return false">
+*/
+function createObject() {
+    landing.createObjectFromLanding(config);
+}
+/**
+* The function below inits landing page using URL parameters.
+*/
+function initLanding() {
+    landing.initLanding(config);
+}
+jQuery(document).ready(initLanding);
+</script>
+
+</html>
